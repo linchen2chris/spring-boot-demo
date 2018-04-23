@@ -4,9 +4,11 @@
 package com.roncoo.education.bean;
 
 import com.roncoo.education.annotations.NeedTest;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
 import java.util.Date;
-
+@Aspect
 public class User {
 	private int id;
 	private String name;
@@ -22,23 +24,25 @@ public class User {
 		this.id = id;
 	}
 
-	@NeedTest
 	public String getName() {
 		return name;
 	}
 
-	@NeedTest
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	@NeedTest
 	public Date getDate() {
 		return date;
 	}
 
-	@NeedTest
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	@Before("execution(* greetTo(..))")
+    public void beforeGreeting() {
+        System.out.println("how are you");
+    }
+
 }
