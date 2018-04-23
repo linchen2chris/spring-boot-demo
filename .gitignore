@@ -7,3 +7,6 @@
 *.project
 *.springBeans
 *.bin
+*.iml
+*/.idea/
+.idea/
